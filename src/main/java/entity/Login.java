@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "login")
 public class Login {
-    private enum RuoloType {
+    public enum Ruolo {
         AMMINISTRATORE, PAZIENTE, MEDICO
     }
 
@@ -17,15 +17,22 @@ public class Login {
     private String password;
 
     @Column(name = "ruolo")
-    private RuoloType ruolo;
+    private Ruolo ruolo;
 
     public Login() {
 
     }
 
+    public Login(String username, String password, Ruolo ruolo) {
+        this.username = username;
+        this.password = password;
+        this.ruolo = ruolo;
+    }
+
     public Login(String username, String password) {
         this.username = username;
         this.password = password;
+        ruolo = null;
     }
 
     @Override
