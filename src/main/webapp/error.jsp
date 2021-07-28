@@ -6,5 +6,6 @@
     </head>
     <body>
         <h1>Errore! Per favore, riprovare più tardi</h1>
+        <a href="index.jsp">Home</a>
     </body>
 </html>

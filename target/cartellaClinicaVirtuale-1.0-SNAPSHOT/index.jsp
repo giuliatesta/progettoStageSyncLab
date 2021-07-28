@@ -6,16 +6,15 @@
     </head>
     <body>
         <h1>Cartella Clinica Virtuale</h1>
-        <br>
         <h2>Login Form</h2>
-        <form action="loginprocess.jsp" method="post">
-            <br/>Codice Fiscale:<label>
+        <form action="loginProcess.jsp" method="post">
+            Codice Fiscale:<label>
             <input type="text" name="codiceFiscale" maxlength="16" minlength="16">
         </label>
             <br/>Password:<label>
-            <input type="password" name="password">
+            <input type="password" name="password" minlength="8">
         </label>
-            <br/><input type="submit" value="Submit">
+            <br/><br/><input type="submit" value="Conferma">
         </form>
     </body>
 </html>

@@ -5,11 +5,7 @@
     <title>Logout page</title>
   </head>
   <body>
-    <%
-      session.removeAttribute("username");
-      session.removeAttribute("password");
-      session.invalidate();
-    %>
     <h1>Logout effettuato con successo. Arrivederci!</h1>
+    <a href="index.jsp">Home</a>
   </body>
 </html>
