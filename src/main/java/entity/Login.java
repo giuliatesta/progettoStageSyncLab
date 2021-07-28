@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "login")
 public class Login {
+
     public enum Ruolo {
         AMMINISTRATORE, PAZIENTE, MEDICO
     }
@@ -19,10 +20,6 @@ public class Login {
     @Column(name = "ruolo")
     private Ruolo ruolo;
 
-    public Login() {
-
-    }
-
     public Login(String username, String password, Ruolo ruolo) {
         this.username = username;
         this.password = password;
@@ -35,12 +32,15 @@ public class Login {
         ruolo = null;
     }
 
+    public Login() {
+    }
+
     @Override
     public String toString() {
         return "entity.Login{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", ruolo=" + ruolo +
+                "username ='" + username + '\'' +
+                ", password ='" + password + '\'' +
+                ", ruolo =" + ruolo +
                 '}';
     }
 }

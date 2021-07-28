@@ -1,4 +1,7 @@
 <html>
+<head>
+
+</head>
 <body>
 <h2>Cartella Clinica Virtuale</h2>
 <h3>Pagina di Login</h3>

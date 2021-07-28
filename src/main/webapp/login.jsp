@@ -1,8 +1,11 @@
 <html>
+<head>
+
+</head>
 <body>
 <h2>Cartella Clinica Virtuale</h2>
 <h3>Pagina di Login</h3>
-<form action="loginprocess.jsp" method="post">
+<form action="loginProcess.jsp" method="post">
     Codice Fiscale:<label> <br/>
     <input type="text" name="codice_fiscale" maxlength="16" minlength="16"/>
 </label><br/><br/>

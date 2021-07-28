@@ -1,20 +1,26 @@
 package services;
 
-import entity.Anagrafica;
-import entity.CartellaClinica;
 import entity.Login;
 import entity.Login.Ruolo;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
-public class LoginService { ;
+import java.util.List;
+
+public class LoginService {
 
     public static boolean checkUsernameAndPassword(String codiceFiscale, String password) {
         Session session = getSession();
-        Login login = new Login(codiceFiscale, password);
         session.beginTransaction();
-        return session.contains(login);
+        Query query = session.createQuery("from Login l where l.username = :codiceFiscale and l.password = :password");
+        query.setParameter("codiceFiscale", codiceFiscale);
+        query.setParameter("password", password);
+        List logins = query.list();
+        System.out.println(logins);
+        return logins.size() == 1 && logins.get(0) != null;
     }
 
     public static Session getSession() {
@@ -23,15 +29,24 @@ public class LoginService { ;
                 .buildSessionFactory();
         try {
             return factory.getCurrentSession();
-        } finally {
-            factory.close();
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
 
     public static Ruolo findRuolo(String codiceFiscale, String password) {
         Session session = getSession();
-        Login login = new Login(codiceFiscale, password);
-        return null;
+        session.beginTransaction();
+        Query query = session.createQuery("select l.ruolo from Login l where l.username = :codiceFiscale and l.password = :password");
+        query.setParameter("codiceFiscale", codiceFiscale);
+        query.setParameter("password", password);
+        List ruolo = query.list();
+        if(ruolo.size() > 1) {
+            return null;
+        } else {
+            return (Ruolo) ruolo.get(0);
+        }
     }
 }
