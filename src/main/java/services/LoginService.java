@@ -19,7 +19,6 @@ public class LoginService {
         query.setParameter("codiceFiscale", codiceFiscale);
         query.setParameter("password", password);
         List logins = query.list();
-        System.out.println(logins);
         return logins.size() == 1 && logins.get(0) != null;
     }
 

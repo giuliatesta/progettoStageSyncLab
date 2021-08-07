@@ -20,7 +20,7 @@ public class Main {
         Session session = factory.getCurrentSession();
 
         try {
-            Anagrafica anagrafica = new Anagrafica("TSTGLI98E52G388W", "Giulia", "Testa", "giuliatestax@gmail.com", 1);
+            Anagrafica anagrafica = new Anagrafica("TSTGLI98E52G388W", "Giulia", "Testa", "giuliatestax@gmail.com", "3423398354");
             Login login = new Login("TSTGLI98E52G388W", "GIULIA98!", AMMINISTRATORE);
             session.beginTransaction();
             session.save(login);

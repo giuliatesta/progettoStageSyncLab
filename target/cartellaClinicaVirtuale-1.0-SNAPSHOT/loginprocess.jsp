@@ -20,8 +20,6 @@
                 case PAZIENTE:
                     response.sendRedirect("homePazient.jsp");
                     break;
-                default:
-                    response.sendRedirect("error.jsp");
             }
         } else {
             response.sendRedirect("error.jsp");

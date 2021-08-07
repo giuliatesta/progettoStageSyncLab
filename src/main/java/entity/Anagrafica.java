@@ -23,7 +23,7 @@ public class Anagrafica {
     private String email;
 
     @Column(name = "telefono")
-    private int numeroTelefono;
+    private String numeroTelefono;
 
     @Column(name = "specializzazione")
     private String specializzazione;
@@ -34,7 +34,7 @@ public class Anagrafica {
     @Column(name = "note")
     private String note;
 
-    public Anagrafica(String codiceFiscale, String nome, String cognome, String email, int numeroTelefono) {
+    public Anagrafica(String codiceFiscale, String nome, String cognome, String email, String numeroTelefono) {
         this.codiceFiscale = codiceFiscale;
         this.nome = nome;
         this.cognome = cognome;
@@ -58,5 +58,69 @@ public class Anagrafica {
                 ", ospedale='" + ospedale + '\'' +
                 ", note='" + note + '\'' +
                 '}';
+    }
+
+    public String getCodiceFiscale() {
+        return codiceFiscale;
+    }
+
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getSpecializzazione() {
+        return specializzazione;
+    }
+
+    public void setSpecializzazione(String specializzazione) {
+        this.specializzazione = specializzazione;
+    }
+
+    public String getOspedale() {
+        return ospedale;
+    }
+
+    public void setOspedale(String ospedale) {
+        this.ospedale = ospedale;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

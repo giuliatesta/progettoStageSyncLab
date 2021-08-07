@@ -6,7 +6,7 @@
 <body>
     <h2>Cartella Clinica Virtuale</h2>
     <h3>Form per aggiungere un medico</h3>
-    <form method="post">
+    <form method="post" action="aggiungiMedicoProcess.jsp">
         Nome*:<label> <br/>
         <input type="text" name="nome_medico" autocapitalize="words" autofocus required>
     </label><br/><br/>
@@ -32,5 +32,6 @@
     </form>
 
     <a href="homeAmministratore.jsp">Home amministratore</a>
+    <a href="logout.jsp">Logout</a>
 </body>
 </html>
