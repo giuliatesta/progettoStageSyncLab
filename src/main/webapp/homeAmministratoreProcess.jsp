@@ -5,9 +5,9 @@
     </head>
     <body>
     <%
-        if(!request.getParameter("aggiungi_medico").isEmpty()) {
+        if(request.getParameter("aggiungi_medico") != null) {
             response.sendRedirect("aggiungiMedico.jsp");
-        } else if(!request.getParameter("rimuovi_medico").isEmpty()) {
+        } else if(request.getParameter("rimuovi_medico")  != null) {
             response.sendRedirect("rimuoviMedico.jsp");
         }
     %>

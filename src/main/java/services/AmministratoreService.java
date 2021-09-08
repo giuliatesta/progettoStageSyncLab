@@ -16,6 +16,7 @@ public class AmministratoreService {
 
     public static boolean isCodiceFiscaleValid(String codiceFiscale) {
         Session session = getSession();
+        assert session != null;
         session.beginTransaction();
         Query query = session.createQuery("from Anagrafica a where a.codiceFiscale = :codiceFiscale");
         query.setParameter("codiceFiscale", codiceFiscale);
@@ -23,16 +24,17 @@ public class AmministratoreService {
         return a.isEmpty();
     }
 
-    public static boolean aggiungiMedico(String nome, String cognome, String codiceFiscale, String email, String telefono, String ospedale, String specializzazione) {
+    public static boolean addMedico(String nome, String cognome, String codiceFiscale, String email, String telefono, String ospedale, String specializzazione) {
         Anagrafica medico = new Anagrafica(codiceFiscale, nome, cognome, email, telefono);
-        if("" != ospedale && ospedale != null) {
+        if(!"".equals(ospedale) && ospedale != null) {
             medico.setOspedale(ospedale);
-        } else if("" != specializzazione && specializzazione != null) {
+        } else if(!"".equals(specializzazione) && specializzazione != null) {
             medico.setSpecializzazione(specializzazione);
         }
 
         try {
             Session session = getSession();
+            assert session != null;
             session.beginTransaction();
             session.save(medico);
             return true;
@@ -42,7 +44,50 @@ public class AmministratoreService {
 
     }
 
-    public static Login createLogin(String codiceFiscale) {
+    public static boolean removeMedico(String codiceFiscale) {
+        Anagrafica medico = findMedicoByCodiceFiscale(codiceFiscale);
+        System.out.println("6");
+        try {
+            Session session =getSession();
+            System.out.println("7");
+            assert session != null;
+            System.out.println("8");
+            session.beginTransaction();
+            System.out.println("9");
+            session.remove(medico);
+            System.out.println("10");
+            session.getTransaction().commit();
+            System.out.println("11");
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static Anagrafica findMedicoByCodiceFiscale(String codiceFiscale) {
+        try {
+            Session session =getSession();
+            session.beginTransaction();
+            System.out.println("1");
+            assert session != null;
+            System.out.println("2");
+            Query query = session.createSQLQuery("from Anagrafica a where a.codiceFiscale = :codiceFiscale");
+            System.out.println("3");
+            query.setParameter("codiceFiscale", codiceFiscale);
+            System.out.println("4");
+            if(query.list().size() == 1){
+                System.out.println("5");
+                return (Anagrafica) query.list().get(0);
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Login createAndSaveNewLogin(String codiceFiscale) {
         Session session = getSession();
         session.beginTransaction();
         Login login = new Login(codiceFiscale, RandomString.make(), MEDICO);

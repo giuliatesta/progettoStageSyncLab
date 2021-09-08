@@ -1,5 +1,7 @@
 package services;
 
+import entity.Anagrafica;
+import entity.CartellaClinica;
 import entity.Login;
 import entity.Login.Ruolo;
 import org.hibernate.HibernateException;
@@ -25,6 +27,8 @@ public class LoginService {
     public static Session getSession() {
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Login.class)
+                .addAnnotatedClass(Anagrafica.class)
+                .addAnnotatedClass(CartellaClinica.class)
                 .buildSessionFactory();
         try {
             return factory.getCurrentSession();

@@ -16,17 +16,14 @@
             String ospedale = request.getParameter("ospedale_medico");
             String specializzazione = request.getParameter("specializzazione_medico");
 
-            if(isCodiceFiscaleValid(codiceFiscale)) {
-                boolean result = AmministratoreService.aggiungiMedico(nome, cognome, codiceFiscale, email, telefono, ospedale, specializzazione);
+            if(!isCodiceFiscaleValid(codiceFiscale)) {
+                boolean result = AmministratoreService.addMedico(nome, cognome, codiceFiscale, email, telefono, ospedale, specializzazione);
                 if(result) {
-                    // POP UP SUCCESS
+                    Login loginNuovoMedico = AmministratoreService.createAndSaveNewLogin(codiceFiscale);
+                    response.sendRedirect("success.jsp");
                 } else {
-                    //POP UP FAILURE
+                    response.sendRedirect("error.jsp");
                 }
-
-                //POP UP CREDENZIALI
-                Login loginNuovoMedico = AmministratoreService.createLogin(codiceFiscale);
-
             }
         %>
 
