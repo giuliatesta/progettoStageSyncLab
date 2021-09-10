@@ -8,6 +8,9 @@
     <form action="homeMedicoProcess.jsp" method="post">
         Inserisci il codice fiscale del paziente:<label> <br/>
         <input type="text" name="codice_fiscale_paziente" minlength="16" maxlength="16" required>
+        <input type="submit" value="Vai" name="carica_cartella_clinica">
+        <br/><br/><br/><br/><br/>
+        <input type="submit" value="Aggiungi nuovo paziente" name="aggiungi_paziente">
     </label><br/><br/>
     </form>
 

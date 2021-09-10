@@ -11,7 +11,7 @@ public class Login {
     }
 
     @Id
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "codice_fiscale")
     private String username;
 
     @Column(name = "psw")

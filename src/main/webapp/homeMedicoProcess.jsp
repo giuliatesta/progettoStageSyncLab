@@ -8,12 +8,15 @@
 </head>
 <body>
         <%
-            String codiceFiscalePaziente = request.getParameter("codice_fiscale_paziente");
-            Anagrafica paziente = findMedicoByCodiceFiscale(codiceFiscalePaziente);
-            if (paziente != null) {
-                response.sendRedirect("cartellaClinicaPazente.jsp");
-            } else {
-                response.sendRedirect("error.jsp");
+            if(request.getParameter("carica_cartella_clinica") != null) {
+                String codiceFiscalePaziente = request.getParameter("codice_fiscale_paziente");
+                Anagrafica paziente = findMedicoByCodiceFiscale(codiceFiscalePaziente);
+                if (paziente != null) {
+                    response.sendRedirect(
+                            String.format("cartellaClinicaPaziente.jsp?cod=%s", codiceFiscalePaziente));
+                } else {
+                    response.sendRedirect("error.jsp");
+                }
             }
         %>
 </body>

@@ -11,7 +11,7 @@ public class Anagrafica {
 
     @Id // Primary key
     @Column(name = "codice_fiscale")
-    private String codiceFiscale;
+    private String codice_fiscale;
 
     @Column(name = "nome")
     private String nome;
@@ -34,8 +34,8 @@ public class Anagrafica {
     @Column(name = "note")
     private String note;
 
-    public Anagrafica(String codiceFiscale, String nome, String cognome, String email, String numeroTelefono) {
-        this.codiceFiscale = codiceFiscale;
+    public Anagrafica(String codice_fiscale, String nome, String cognome, String email, String numeroTelefono) {
+        this.codice_fiscale = codice_fiscale;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -49,7 +49,7 @@ public class Anagrafica {
     @Override
     public String toString() {
         return "entity.Anagrafica{" +
-                "codiceFiscale='" + codiceFiscale + '\'' +
+                "codiceFiscale='" + codice_fiscale + '\'' +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
@@ -60,12 +60,12 @@ public class Anagrafica {
                 '}';
     }
 
-    public String getCodiceFiscale() {
-        return codiceFiscale;
+    public String getCodice_fiscale() {
+        return codice_fiscale;
     }
 
-    public void setCodiceFiscale(String codiceFiscale) {
-        this.codiceFiscale = codiceFiscale;
+    public void setCodice_fiscale(String codiceFiscale) {
+        this.codice_fiscale = codiceFiscale;
     }
 
     public String getNome() {

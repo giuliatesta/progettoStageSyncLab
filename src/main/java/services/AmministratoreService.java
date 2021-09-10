@@ -18,7 +18,7 @@ public class AmministratoreService {
         Session session = getSession();
         assert session != null;
         session.beginTransaction();
-        Query query = session.createQuery("from Anagrafica a where a.codiceFiscale = :codiceFiscale");
+        Query query = session.createQuery(String.format("from Anagrafica a where a.codice_fiscale = %s", codiceFiscale));
         query.setParameter("codiceFiscale", codiceFiscale);
         List a = query.list();
         return a.isEmpty();
@@ -71,13 +71,13 @@ public class AmministratoreService {
             System.out.println("1");
             assert session != null;
             System.out.println("2");
-            Query query = session.createSQLQuery("from Anagrafica a where a.codiceFiscale = :codiceFiscale");
-            System.out.println("3");
+            Query query = session.createQuery("from Anagrafica a where a.codice_fiscale = :codiceFiscale");
             query.setParameter("codiceFiscale", codiceFiscale);
             System.out.println("4");
-            if(query.list().size() == 1){
+            List paziente = query.list();
+            if(paziente.size() == 1){
                 System.out.println("5");
-                return (Anagrafica) query.list().get(0);
+                return (Anagrafica) paziente.get(0);
             } else {
                 return null;
             }

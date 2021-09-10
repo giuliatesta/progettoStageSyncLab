@@ -18,7 +18,7 @@
                     response.sendRedirect("homeMedico.jsp");
                     break;
                 case PAZIENTE:
-                    response.sendRedirect("homePazient.jsp");
+                    response.sendRedirect("homePaziente.jsp");
                     break;
             }
         } else {
