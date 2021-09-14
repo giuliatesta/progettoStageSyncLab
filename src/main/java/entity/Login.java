@@ -1,6 +1,8 @@
 package entity;
 
 import javax.persistence.*;
+import java.security.SecureRandom;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "login")
@@ -42,5 +44,12 @@ public class Login {
                 ", password ='" + password + '\'' +
                 ", ruolo =" + ruolo +
                 '}';
+    }
+
+    public static String createPassword() {
+        SecureRandom random = new SecureRandom();
+        return random.ints(8)
+                .mapToObj(i -> String.valueOf((char)i))
+                .collect(Collectors.joining());
     }
 }

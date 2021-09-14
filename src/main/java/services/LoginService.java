@@ -14,6 +14,12 @@ import java.util.List;
 
 public class LoginService {
 
+    /**
+     * Controlla se l'utente ha un login già presente
+     * @param codiceFiscale username utente
+     * @param password  password utente
+     * @return  true, se è presente e false se non lo è
+     */
     public static boolean checkUsernameAndPassword(String codiceFiscale, String password) {
         Session session = getSession();
         session.beginTransaction();
@@ -37,7 +43,6 @@ public class LoginService {
         }
         return null;
     }
-
 
     public static Ruolo findRuolo(String codiceFiscale, String password) {
         Session session = getSession();

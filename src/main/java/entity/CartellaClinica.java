@@ -6,9 +6,7 @@ import javax.persistence.*;
 @Table(name = "cartella_clinica")
 public class CartellaClinica {
 
-    private enum SexType {
-        FEMALE, MALE, OTHER
-    }
+    private static int number = 0;
 
     @Id
     @Column(name = "id")
@@ -22,7 +20,7 @@ public class CartellaClinica {
     private int eta;
 
     @Column(name = "sesso")
-    private SexType sesso;
+    private String sesso;
 
     @Column(name = "altezza")
     private double altezza;
@@ -73,6 +71,11 @@ public class CartellaClinica {
         this.idPaziente = idPaziente;
     }
 
+    public CartellaClinica(int idCartella, String idPaziente) {
+        this.idCartella = idCartella;
+        this.idPaziente = idPaziente;
+    }
+
     @Override
     public String toString() {
         return "entity.CartellaClinica{" +
@@ -95,5 +98,147 @@ public class CartellaClinica {
                 ", terapia='" + terapia + '\'' +
                 ", esami='" + esami + '\'' +
                 '}';
+    }
+
+    public static int createIdCartella() {
+        number++;
+        return number;
+    }
+
+    public int getIdCartella() {
+        return idCartella;
+    }
+
+    public String getIdPaziente() {
+        return idPaziente;
+    }
+
+
+    public int getEta() {
+        return eta;
+    }
+
+    public void setEta(int eta) {
+        this.eta = eta;
+    }
+
+    public String getSesso() {
+        return sesso;
+    }
+
+    public void setSesso(String sesso) {
+        this.sesso = sesso;
+    }
+
+    public double getAltezza() {
+        return altezza;
+    }
+
+    public void setAltezza(double altezza) {
+        this.altezza = altezza;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getDimensioneVita() {
+        return dimensioneVita;
+    }
+
+    public void setDimensioneVita(double dimensioneVita) {
+        this.dimensioneVita = dimensioneVita;
+    }
+
+    public int getFrequenzaCardiacaMinima() {
+        return frequenzaCardiacaMinima;
+    }
+
+    public void setFrequenzaCardiacaMinima(int frequenzaCardiacaMinima) {
+        this.frequenzaCardiacaMinima = frequenzaCardiacaMinima;
+    }
+
+    public int getFrequenzaCardiacaMassima() {
+        return frequenzaCardiacaMassima;
+    }
+
+    public void setFrequenzaCardiacaMassima(int frequenzaCardiacaMassima) {
+        this.frequenzaCardiacaMassima = frequenzaCardiacaMassima;
+    }
+
+    public int getPressioneMinima() {
+        return pressioneMinima;
+    }
+
+    public void setPressioneMinima(int pressioneMinima) {
+        this.pressioneMinima = pressioneMinima;
+    }
+
+    public int getPressioneMassima() {
+        return pressioneMassima;
+    }
+
+    public void setPressioneMassima(int pressioneMassima) {
+        this.pressioneMassima = pressioneMassima;
+    }
+
+    public int getColesteroloMinimo() {
+        return colesteroloMinimo;
+    }
+
+    public void setColesteroloMinimo(int colesteroloMinimo) {
+        this.colesteroloMinimo = colesteroloMinimo;
+    }
+
+    public int getColesteroloMassimo() {
+        return colesteroloMassimo;
+    }
+
+    public void setColesteroloMassimo(int colesteroloMassimo) {
+        this.colesteroloMassimo = colesteroloMassimo;
+    }
+
+    public boolean isDiabete() {
+        return diabete;
+    }
+
+    public void setDiabete(boolean diabete) {
+        this.diabete = diabete;
+    }
+
+    public boolean isFumo() {
+        return fumo;
+    }
+
+    public void setFumo(boolean fumo) {
+        this.fumo = fumo;
+    }
+
+    public String getAnamnesi() {
+        return anamnesi;
+    }
+
+    public void setAnamnesi(String anamnesi) {
+        this.anamnesi = anamnesi;
+    }
+
+    public String getTerapia() {
+        return terapia;
+    }
+
+    public void setTerapia(String terapia) {
+        this.terapia = terapia;
+    }
+
+    public String getEsami() {
+        return esami;
+    }
+
+    public void setEsami(String esami) {
+        this.esami = esami;
     }
 }

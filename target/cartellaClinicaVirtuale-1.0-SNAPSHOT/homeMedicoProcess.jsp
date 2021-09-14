@@ -13,10 +13,15 @@
                 Anagrafica paziente = findMedicoByCodiceFiscale(codiceFiscalePaziente);
                 if (paziente != null) {
                     response.sendRedirect(
-                            String.format("cartellaClinicaPaziente.jsp?cod=%s", codiceFiscalePaziente));
+                            String.format("cartellaClinicaPaziente.jsp?cf=%s", codiceFiscalePaziente));
                 } else {
                     response.sendRedirect("error.jsp");
                 }
+            }
+
+
+            if(request.getParameter("aggiungi_paziente") != null) {
+                response.sendRedirect("aggiungiPaziente.jsp");
             }
         %>
 </body>
