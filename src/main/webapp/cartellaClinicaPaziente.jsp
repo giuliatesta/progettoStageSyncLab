@@ -18,9 +18,8 @@
         }
     %>
     <h1>Cartella Clinica</h1>
-    <br><br>
+    <br>
     <h3>Dati anagrafici</h3>
-
     <h3>Dati medici</h3>
     <br><br>
 

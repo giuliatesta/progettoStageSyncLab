@@ -1,6 +1,7 @@
 <%@ page import="services.AmministratoreService" %>
-<%@ page import="static services.AmministratoreService.isCodiceFiscaleValid" %>
+<%@ page import="static services.AmministratoreService.isCodiceFiscalePresentInDB" %>
 <%@ page import="entity.Login" %>
+<%@ page import="static entity.Login.Ruolo.MEDICO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,10 +17,10 @@
             String ospedale = request.getParameter("ospedale_medico");
             String specializzazione = request.getParameter("specializzazione_medico");
 
-            if(!isCodiceFiscaleValid(codiceFiscale)) {
-                boolean result = AmministratoreService.addMedico(nome, cognome, codiceFiscale, email, telefono, ospedale, specializzazione);
+            if(!isCodiceFiscalePresentInDB(codiceFiscale)) {
+                boolean result = AmministratoreService.addUtente(nome, cognome, codiceFiscale, email, telefono, ospedale, specializzazione);
                 if(result) {
-                    Login loginNuovoMedico = AmministratoreService.createAndSaveNewLogin(codiceFiscale);
+                    Login loginNuovoMedico = AmministratoreService.createAndSaveNewLogin(codiceFiscale, MEDICO);
                     response.sendRedirect("success.jsp");
                 } else {
                     response.sendRedirect("error.jsp");

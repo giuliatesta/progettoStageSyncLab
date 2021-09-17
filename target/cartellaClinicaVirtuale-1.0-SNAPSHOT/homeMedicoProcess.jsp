@@ -1,6 +1,6 @@
 <%@ page import="entity.Anagrafica" %>
 <%@ page import="services.AmministratoreService" %>
-<%@ page import="static services.AmministratoreService.findMedicoByCodiceFiscale" %>
+<%@ page import="static services.AmministratoreService.findAnagraficaUtenteByCodiceFiscale" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,10 +10,10 @@
         <%
             if(request.getParameter("carica_cartella_clinica") != null) {
                 String codiceFiscalePaziente = request.getParameter("codice_fiscale_paziente");
-                Anagrafica paziente = findMedicoByCodiceFiscale(codiceFiscalePaziente);
+                Anagrafica paziente = findAnagraficaUtenteByCodiceFiscale(codiceFiscalePaziente);
                 if (paziente != null) {
                     response.sendRedirect(
-                            String.format("cartellaClinicaPaziente.jsp?cf=%s", codiceFiscalePaziente));
+                            String.format("cartellaClinicaPaziente.jsp?cf=%s&new=false", codiceFiscalePaziente));
                 } else {
                     response.sendRedirect("error.jsp");
                 }

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Classe entity per la tabella anagrafica del database
+ */
 @Entity
 @Table(name = "anagrafica")
 public class Anagrafica {
@@ -60,64 +63,13 @@ public class Anagrafica {
                 '}';
     }
 
-    public String getCodice_fiscale() {
-        return codice_fiscale;
-    }
-
-    public void setCodice_fiscale(String codiceFiscale) {
-        this.codice_fiscale = codiceFiscale;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNumeroTelefono() {
-        return numeroTelefono;
-    }
-
-    public void setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
-    }
-
-    public String getSpecializzazione() {
-        return specializzazione;
-    }
 
     public void setSpecializzazione(String specializzazione) {
         this.specializzazione = specializzazione;
     }
 
-    public String getOspedale() {
-        return ospedale;
-    }
-
     public void setOspedale(String ospedale) {
         this.ospedale = ospedale;
-    }
-
-    public String getNote() {
-        return note;
     }
 
     public void setNote(String note) {

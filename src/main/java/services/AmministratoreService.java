@@ -13,6 +13,9 @@ import java.util.List;
 
 import static services.LoginService.getSession;
 
+/**
+ * Classe service per la gestione delle operazioni di amministrazione
+ */
 public class AmministratoreService {
 
     /**
@@ -79,8 +82,8 @@ public class AmministratoreService {
     private static Login findLoginUtenteByCodiceFiscale(String codiceFiscale) {
         try {
             Session session =getSession();
-            session.beginTransaction();
             assert session != null;
+            session.beginTransaction();
             Query query = session.createQuery("from Login l where l.username = :codiceFiscale");
             query.setParameter("codiceFiscale", codiceFiscale);
             List utente = query.list();
@@ -103,8 +106,8 @@ public class AmministratoreService {
     public static Anagrafica findAnagraficaUtenteByCodiceFiscale(String codiceFiscale) {
         try {
             Session session =getSession();
-            session.beginTransaction();
             assert session != null;
+            session.beginTransaction();
             Query query = session.createQuery("from Anagrafica a where a.codice_fiscale = :codiceFiscale");
             query.setParameter("codiceFiscale", codiceFiscale);
             List utente = query.list();
@@ -127,8 +130,8 @@ public class AmministratoreService {
     public static CartellaClinica findCartellaClinicaUtenteByCodiceFiscale(String codiceFiscale) {
         try {
             Session session =getSession();
-            session.beginTransaction();
             assert session != null;
+            session.beginTransaction();
             Query query = session.createQuery("from CartellaClinica cc where cc.idPaziente = :codiceFiscale");
             query.setParameter("codiceFiscale", codiceFiscale);
             List utente = query.list();
@@ -150,6 +153,7 @@ public class AmministratoreService {
      */
     public static Login createAndSaveNewLogin(String codiceFiscale, Ruolo ruolo) {
         Session session = getSession();
+        assert session != null;
         session.beginTransaction();
         Login login = new Login(codiceFiscale, RandomString.make(), ruolo);
         session.save(login);
@@ -163,6 +167,7 @@ public class AmministratoreService {
      */
     public static void saveNewCartellaClinica(CartellaClinica cartellaClinica) {
         Session session = getSession();
+        assert session != null;
         session.beginTransaction();
         session.save(cartellaClinica);
         session.getTransaction().commit();

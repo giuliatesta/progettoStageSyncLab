@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.security.SecureRandom;
 import java.util.stream.Collectors;
 
+/**
+ * Classe entity per la tabella login del db
+ */
 @Entity
 @Table(name = "login")
 public class Login {

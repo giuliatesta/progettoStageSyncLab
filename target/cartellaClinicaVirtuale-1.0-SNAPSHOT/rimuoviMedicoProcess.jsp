@@ -1,5 +1,5 @@
 <%@ page import="services.AmministratoreService" %>
-<%@ page import="static services.AmministratoreService.isCodiceFiscaleValid" %><%--
+<%@ page import="static services.AmministratoreService.isCodiceFiscalePresentInDB" %><%--
   Created by IntelliJ IDEA.
   User: giuli
   Date: 02/09/2021
@@ -14,8 +14,8 @@
 <body>
 <%
     String codiceFiscale = request.getParameter("codice_fiscale_medico");
-    if(!isCodiceFiscaleValid(codiceFiscale)) {
-        boolean result = AmministratoreService.removeMedico(codiceFiscale);
+    if(!isCodiceFiscalePresentInDB(codiceFiscale)) {
+        boolean result = AmministratoreService.removeUtente(codiceFiscale);
         System.out.println(result);
         if(result) {
             response.sendRedirect("success.jsp");

@@ -42,7 +42,7 @@
             }
             createAndSaveNewLogin(codiceFiscale, PAZIENTE);
 
-            CartellaClinica cartellaClinica = new CartellaClinica(createIdCartella(), codiceFiscale);
+            CartellaClinica cartellaClinica = new CartellaClinica(codiceFiscale);
             cartellaClinica.setEta(Integer.parseInt(eta));
             cartellaClinica.setSesso(sesso);
             cartellaClinica.setPeso(Double.parseDouble(peso));

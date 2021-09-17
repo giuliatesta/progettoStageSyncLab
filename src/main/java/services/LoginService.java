@@ -12,6 +12,9 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
+/**
+ * Classe service per la gestione del login
+ */
 public class LoginService {
 
     /**
@@ -22,6 +25,7 @@ public class LoginService {
      */
     public static boolean checkUsernameAndPassword(String codiceFiscale, String password) {
         Session session = getSession();
+        assert session != null;
         session.beginTransaction();
         Query query = session.createQuery("from Login l where l.username = :codiceFiscale and l.password = :password");
         query.setParameter("codiceFiscale", codiceFiscale);
@@ -46,6 +50,7 @@ public class LoginService {
 
     public static Ruolo findRuolo(String codiceFiscale, String password) {
         Session session = getSession();
+        assert session != null;
         session.beginTransaction();
         Query query = session.createQuery("select l.ruolo from Login l where l.username = :codiceFiscale and l.password = :password");
         query.setParameter("codiceFiscale", codiceFiscale);
